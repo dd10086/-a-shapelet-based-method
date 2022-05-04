@@ -172,7 +172,7 @@ class TimeSeriesEncoderClassifier(sklearn.base.BaseEstimator,
                 self.optimizer.step()
                 losses[0].append(loss.item())
                 del loss
-            print('epoch{}, total loss is {}'.format(i + 1, numpy.array(losses[0]).sum()))
+            print('epoch{}, train finished'.format(i + 1))
             total_losses.append(numpy.array(losses[0]). sum())
             epoch_end = timeit.default_timer()
             print("epoch {} time: {}".format(i + 1, (epoch_end - epoch_start) / 60))
