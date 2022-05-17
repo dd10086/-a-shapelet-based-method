@@ -145,7 +145,7 @@ class TimeSeriesEncoderClassifier(sklearn.base.BaseEstimator,
         train_generator = torch.utils.data.DataLoader(
             train_torch_dataset, batch_size=self.batch_size, shuffle=True
         )
-        epoch = 100
+        epoch = 25
         min_loss = 1000
         best_epoch = -1
         total_losses = []
@@ -184,7 +184,7 @@ class TimeSeriesEncoderClassifier(sklearn.base.BaseEstimator,
         Trains sequentially the encoder unsupervisedly and then the classifier
         using the given labels over the learned features.
         """
-        final_shapelet_num = 50
+        final_shapelet_num = 35
         # Fitting encoder
         encoder_start = timeit.default_timer()
         self.encoder = self.fit_encoder(
