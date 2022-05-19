@@ -130,7 +130,7 @@ class TimeSeriesEncoderClassifier(sklearn.base.BaseEstimator,
         classifier.
         """
         self.classifier = SVC(kernel='linear', gamma='auto')
-        self.classifier.fit(features, y)  # 相当于是一个训练分类器的操作
+        self.classifier.fit(features, y)
 
         return self.classifier
 
@@ -159,7 +159,7 @@ class TimeSeriesEncoderClassifier(sklearn.base.BaseEstimator,
                 if self.cuda:
                     batch = batch.cuda(self.gpu)
                 self.optimizer.zero_grad()
-                slide_num = 3  # todo 超参数，  可以修改
+                slide_num = 3
                 alpha = 0.6
                 loss = 0
                 for m in range(slide_num):
